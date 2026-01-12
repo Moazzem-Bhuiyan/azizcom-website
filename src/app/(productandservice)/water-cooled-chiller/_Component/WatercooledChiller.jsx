@@ -160,7 +160,7 @@ const imageVariants = {
 
 export function YORKChillers() {
   return (
-    <section className="py-20 ">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"

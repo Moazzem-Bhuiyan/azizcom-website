@@ -206,7 +206,7 @@ const imageVariants = {
 
 export function ElevatorProducts() {
   return (
-    <section className=" relative py-20 ">
+    <section className=" relative py-20 bg-white ">
       {/* Soft background accents */}
       <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl" />
       <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-indigo-600/10 blur-3xl" />

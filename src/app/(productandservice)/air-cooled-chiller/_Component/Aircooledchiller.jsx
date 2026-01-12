@@ -140,7 +140,7 @@ const imageVariants = {
 
 export function ChillerProducts() {
   return (
-    <section className="py-20 ">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <Animatetext duration={1} x={-50} y={0}>
           <h4 className="text-blue-600 font-semibold uppercase tracking-wide text-xl border-l-4 border-blue-600 pl-4 mb-10">

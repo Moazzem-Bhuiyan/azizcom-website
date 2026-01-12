@@ -124,7 +124,7 @@ const imageVariants = {
 
 export function ChillerAndCoolerProducts() {
   return (
-    <section className="py-20 ">
+    <section className="py-20 bg-white ">
       <div className="max-w-7xl mx-auto px-4">
         {/* Chiller and Cooler Section */}
 

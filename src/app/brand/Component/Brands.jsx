@@ -111,7 +111,7 @@ export default function AnimatedBrands() {
               <Image
                 src={brand.logo}
                 alt={brand.name}
-                width={100}
+                width={150}
                 height={60}
                 className="object-contain mb-2"
               />

@@ -1,2 +1,15 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+* {
+  font-family: var(--font-montserrat) !important;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --font-general-sans: 'General Sans', sans-serif;
+
+  --font-dm-sans: 'DM Sans', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+}

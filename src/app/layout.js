@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Montserrat } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/Component/shared/Navber/Navber';
 import Footer from '@/Component/shared/Footer/Footer';
@@ -8,9 +8,11 @@ const geistSans = Geist({
   subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const Mont_serrat = Montserrat({
+  variable: '--font-montserrat',
+  display: 'swap',
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '900'],
 });
 
 export const metadata = {
@@ -21,7 +23,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${geistSans.variable} ${Mont_serrat.variable} font-sans bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-50`}
+      >
         <Navbar />
         {children}
         <Footer />

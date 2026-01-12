@@ -1,8 +1,12 @@
 'use client';
 import Animatetext from '@/Component/shared/AnimatedText/AnimatedText';
+import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 
 export default function AboutPremium() {
+  const handleOpenPDF = () => {
+    window.open('/about/Azizco-Profile.pdf', '_blank');
+  };
   return (
     <section className="relative overflow-hidden bg-white py-28 w-full">
       {/* Soft background accents */}
@@ -80,6 +84,14 @@ export default function AboutPremium() {
             </motion.div>
           ))}
         </motion.div>
+        <section className=" ">
+          <Button
+            className=" cursor-pointer bg-linear-to-r from-blue-500 to-red-500 hover:from-blue-600 hover:to-red-600 text-white font-semibold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed group"
+            onClick={handleOpenPDF}
+          >
+            View Full Details (PDF)
+          </Button>
+        </section>
       </div>
     </section>
   );

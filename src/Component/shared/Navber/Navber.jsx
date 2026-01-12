@@ -304,7 +304,7 @@ export function Navbar() {
                               transition={{ delay: 0.1 + categoryIndex * 0.05 }}
                             >
                               <DropdownMenuSub>
-                                <DropdownMenuSubTrigger className="flex items-center gap-2 font-semibold hover:text-white text-sm hover:bg-blue-900 transition-colors">
+                                <DropdownMenuSubTrigger className="flex items-center gap-2 font-semibold text-black hover:text-white text-sm hover:bg-blue-900 transition-colors">
                                   <motion.span
                                     className="w-2 h-2 bg-blue-600  rounded-full hover:text-white"
                                     whileHover={{ scale: 1.5 }}

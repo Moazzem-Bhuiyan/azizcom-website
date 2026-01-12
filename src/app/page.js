@@ -11,8 +11,8 @@ export default function Home() {
     <main className=" z-10 min-h-screen overflow-hidden px-5 md:px-10 lg:mx-auto lg:w-full lg:px-0 w-full max-w-2xl:w-3/4 2xl:max-w-480 mx-auto">
       <Hero />
       <AboutPremium />
-      <CompanyStrengths />
       <MarketWeServe />
+      <CompanyStrengths />
       <StatsCards />
       <SuccessfulProjects />
       <OurClients />

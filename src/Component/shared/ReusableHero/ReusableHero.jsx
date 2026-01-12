@@ -18,7 +18,7 @@ const HeroSection = ({ title, bgImage, subtitle, className }) => {
       {/* Overlay */}
       <div className={`absolute inset-0 bg-black/50 ${className}`}></div>
 
-      <div className="relative z-10 text-center px-4 max-w-5xl">
+      <div className="relative z-10 text-start px-4 max-w-7xl">
         <Animatetext duration={1} x={0} y={20}>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
         </Animatetext>

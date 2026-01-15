@@ -84,10 +84,14 @@ const divisions = [
     logos: [{ name: 'WABTEC', src: '/service/service11.png' }],
   },
 ];
-
+// bg-linear-to-b from-pink-50 via-white to-orange-50
 export default function ActivitiesSection() {
   return (
-    <div className="min-h-screen bg-linear-to-b from-pink-50 via-white to-orange-50 p-8 md:p-12 relative overflow-hidden">
+    <div className="min-h-screen bg-[url('/logofirst.png')] bg-contain bg-center bg-no-repeat p-8 md:p-12 relative overflow-hidden">
+      {/* Overlay */}
+      <div
+        className={`absolute inset-0  bg-linear-to-b from-pink-50/4 via-indigo-50 to-orange-50/5`}
+      ></div>
       {/* Decorative background shapes */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-pink-100/40 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-100/40 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl" />
@@ -130,7 +134,7 @@ export default function ActivitiesSection() {
                           {pointGroup.items.map((item, itemIdx) => (
                             <li key={itemIdx} className="flex gap-2 items-center">
                               <span className="text-blue-600 font-bold text-2xl shrink-0">•</span>
-                              <span className="uppercase leading-relaxed">{item}</span>
+                              <span className="uppercase leading-relaxed text-sm">{item}</span>
                             </li>
                           ))}
                         </ul>

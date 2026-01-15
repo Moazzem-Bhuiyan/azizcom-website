@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import logo from '@/assest/logo.png';
+import logo1 from '@/assest/logofirst.png';
+import logo2 from '@/assest/logosecond.png';
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -154,7 +156,7 @@ export function Navbar() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
       >
-        <div className="max-w-7xl mx-auto px-4 py-4 ">
+        <div className="max-w-7xl mx-auto px-4 py-1 ">
           <div className="flex items-center justify-between">
             {/* Logo Section */}
             <motion.div
@@ -162,14 +164,28 @@ export function Navbar() {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <motion.div className="cursor-pointer  border-l-4  border-blue-600 pl-2 ">
-                <Image
-                  src={logo}
-                  alt="Logo"
-                  width={3500}
-                  height={10000}
-                  className=" object-contain w-90 h-auto md:h-auto"
-                />
+              <motion.div
+                className="cursor-pointer  border-l-4  border-blue-600 pl-2 "
+                onClick={() => {
+                  router.push('/');
+                }}
+              >
+                <div className="flex items-center justify-center">
+                  <Image
+                    src={logo1}
+                    alt="Logo"
+                    width={3500}
+                    height={10000}
+                    className=" object-contain w-35 h-auto md:h-auto"
+                  />
+                  <Image
+                    src={logo2}
+                    alt="Logo"
+                    width={3500}
+                    height={10000}
+                    className=" object-contain w-60  h-auto md:h-auto -ml-7 "
+                  />
+                </div>
               </motion.div>
             </motion.div>
 

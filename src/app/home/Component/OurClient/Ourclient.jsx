@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/carousel';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Autoplay from 'embla-carousel-autoplay';
 
 // Demo client logos
 const clients = [
@@ -47,7 +48,14 @@ export default function ClientsCarousel() {
         </h2>
 
         {/* Carousel */}
-        <Carousel className="mt-12">
+        <Carousel
+          className="mt-12"
+          plugins={[
+            Autoplay({
+              delay: 2000,
+            }),
+          ]}
+        >
           <CarouselContent className="flex space-x-6">
             {clients.concat(clients).map((client, index) => (
               <CarouselItem key={index} className="flex-none w-1/4">

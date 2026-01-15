@@ -1,3 +1,4 @@
+import ActivitiesSection from './about/_Component/Activitise';
 import AboutPremium from './home/Component/About/Aboutus';
 import { CompanyStrengths } from './home/Component/CompanyStrengths/CompanyStrengths';
 import StatsCards from './home/Component/CompanyStrengths/StatsCards';
@@ -11,6 +12,7 @@ export default function Home() {
     <main className=" z-10 min-h-screen overflow-hidden px-5 md:px-10 lg:mx-auto lg:w-full lg:px-0 w-full max-w-2xl:w-3/4 2xl:max-w-480 mx-auto">
       <Hero />
       <AboutPremium />
+      <ActivitiesSection />
       <MarketWeServe />
       <CompanyStrengths />
       <StatsCards />

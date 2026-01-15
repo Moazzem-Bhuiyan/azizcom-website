@@ -25,12 +25,12 @@ export function ContactSection() {
     {
       icon: Mail,
       title: 'Email',
-      details: ['amdadul@azizco.com', 'makaium@azizco.com'],
+      details: ['info@azizco.com'],
     },
     {
       icon: Phone,
       title: 'Phone',
-      details: ['01614515250', '01798265015'],
+      details: ['222286590', '58815043'],
     },
   ];
 

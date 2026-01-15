@@ -157,10 +157,9 @@ const imageVariants = {
     },
   },
 };
-
 export function YORKChillers() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-linear-to-b from-pink-50 via-white to-orange-50">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -181,7 +180,6 @@ export function YORKChillers() {
                   className="absolute inset-0 bg-linear-to-r from-blue-500/20 via-cyan-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 pointer-events-none"
                   transition={{ duration: 0.5 }}
                 />
-
                 <motion.div
                   className="relative h-56 bg-linear-to-br from-slate-700 to-slate-800 overflow-hidden"
                   initial="hidden"

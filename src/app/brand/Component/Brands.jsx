@@ -78,7 +78,7 @@ export default function AnimatedBrands() {
   };
 
   return (
-    <section className=" relative overflow-hidden py-24 bg-gray-50">
+    <section className=" relative overflow-hidden py-24 bg-linear-to-b from-pink-50 via-white to-orange-50">
       {/* Soft background accents */}
       <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-blue-300 blur-3xl" />
       <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-indigo-400/50 blur-3xl" />

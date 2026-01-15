@@ -8,7 +8,7 @@ export default function AboutPremium() {
     window.open('/about/Azizco-Profile.pdf', '_blank');
   };
   return (
-    <section className="relative overflow-hidden bg-white py-28 w-full">
+    <section className="relative overflow-hidden bg-linear-to-b from-pink-50 via-white to-orange-50 py-28 w-full">
       {/* Soft background accents */}
       <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl" />
       <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-indigo-600/10 blur-3xl" />

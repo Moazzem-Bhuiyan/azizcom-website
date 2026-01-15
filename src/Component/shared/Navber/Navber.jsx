@@ -149,7 +149,7 @@ export function Navbar() {
 
       {/* Main Header */}
       <motion.div
-        className="bg-indigo-50 border-b-2 border-gray-200 shadow-sm"
+        className="bg-black border-b-2 border-gray-200 shadow-sm"
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
@@ -163,7 +163,13 @@ export function Navbar() {
               transition={{ duration: 0.3 }}
             >
               <motion.div className="cursor-pointer  border-l-4  border-blue-600 pl-2 ">
-                <Image src={logo} alt="Logo" width={240} height={10000} />
+                <Image
+                  src={logo}
+                  alt="Logo"
+                  width={3500}
+                  height={10000}
+                  className=" object-contain w-90 h-auto md:h-auto"
+                />
               </motion.div>
             </motion.div>
 
@@ -189,14 +195,14 @@ export function Navbar() {
                 transition={{ duration: 0.2 }}
               >
                 <div className="font-semibold text-xs text-gray-500">Email</div>
-                <div>azizcom@gmail.com</div>
+                <div className="text-white">info@azizco.com</div>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button className="bg-blue-900 hover:bg-blue-800 text-white font-semibold text-sm px-4 h-auto py-3">
                   <Zap className="w-4 h-4 mr-2" />
                   <div>
                     <div className="text-xs">CALL NOW</div>
-                    <div className="text-xs font-bold">+8801820921814</div>
+                    <div className="text-xs font-bold">+58815043</div>
                   </div>
                 </Button>
               </motion.div>

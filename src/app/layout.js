@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Montserrat } from 'next/font/google';
+import { Geist, Montserrat } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/Component/shared/Navber/Navber';
 import Footer from '@/Component/shared/Footer/Footer';
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${Mont_serrat.variable} font-sans bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-50`}
+        className={`${geistSans.variable} ${Mont_serrat.variable} font-sans bg-linear-to-b from-pink-50 via-white to-orange-50 text-gray-900 dark:bg-gray-900 dark:text-gray-50`}
       >
         <Navbar />
         {children}

@@ -1,11 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { Search, MapPin, Facebook, Linkedin, Youtube, ChevronDown, Zap } from 'lucide-react';
+import { MapPin, Facebook, Linkedin, Youtube, ChevronDown, Zap } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import logo from '@/assest/logo.png';
 import logo1 from '@/assest/logofirst.png';
 import logo2 from '@/assest/logosecond.png';
 import {
@@ -42,6 +41,7 @@ export function Navbar() {
       'Air Cooled Chiller',
       'Absorption Chiller',
       'Preciou Air Conditioning',
+      'Modular Chillers',
     ],
     'LOCOMOTIVE DIVISION': ['Locomotive Division'],
   };
@@ -151,18 +151,18 @@ export function Navbar() {
 
       {/* Main Header */}
       <motion.div
-        className="bg-black border-b-2 border-gray-200 shadow-sm"
+        className="bg-black border-b-2 border-gray-200 shadow-sm "
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
       >
-        <div className="max-w-7xl mx-auto px-4 py-1 ">
-          <div className="flex items-center justify-between">
+        <div className="max-w-full mx-auto  ">
+          <div className="flex max-w-full bg-white items-center justify-between">
             {/* Logo Section */}
             <motion.div
-              className="flex items-center gap-1"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              className="flex flex-1 items-center gap-1 bg-black px-4  justify-center slanted-bg"
+              // whileHover={{ scale: 1.05 }}
+              // transition={{ duration: 0.3 }}
             >
               <motion.div
                 className="cursor-pointer  border-l-4  border-blue-600 pl-2 "
@@ -191,7 +191,7 @@ export function Navbar() {
 
             {/* Right Section */}
             <motion.div
-              className="flex items-center gap-3"
+              className="flex flex-1 bg-white items-center justify-center gap-5 "
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -211,9 +211,9 @@ export function Navbar() {
                 transition={{ duration: 0.2 }}
               >
                 <div className="font-semibold text-xs text-gray-500">Email</div>
-                <div className="text-white">info@azizco.com</div>
+                <div className="text-blac">info@azizco.com</div>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button className="bg-blue-900 hover:bg-blue-800 text-white font-semibold text-sm px-4 h-auto py-3">
                   <Zap className="w-4 h-4 mr-2" />
                   <div>
@@ -221,7 +221,7 @@ export function Navbar() {
                     <div className="text-xs font-bold">+58815043</div>
                   </div>
                 </Button>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </div>
         </div>
@@ -230,13 +230,13 @@ export function Navbar() {
       {/* Navigation Menu */}
       <motion.div
         className="bg-linear-to-r from-slate-100 to-slate-50 border-b border-gray-300"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
+        // initial={{ opacity: 0 }}
+        // animate={{ opacity: 1 }}
+        // transition={{ duration: 0.6, delay: 0.3 }}
       >
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4 py-2">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1  px-10  rounded-lg shadow-lg -mb-13 z-50 border border-blue-500 bg-white">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.href}
@@ -377,7 +377,7 @@ export function Navbar() {
                 whileHover={{ rotate: 90, scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               ></motion.button>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button className="bg-red-600 hover:bg-red-700 text-white font-bold text-sm px-6 py-2 flex items-center gap-2">
                   <motion.span
                     animate={{ rotate: [0, 360] }}
@@ -387,7 +387,7 @@ export function Navbar() {
                   </motion.span>
                   AZIZ.COM
                 </Button>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </div>
         </div>

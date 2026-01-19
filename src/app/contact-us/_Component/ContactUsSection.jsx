@@ -30,7 +30,12 @@ export function ContactSection() {
     {
       icon: Phone,
       title: 'Phone',
-      details: ['222286590', '58815043'],
+      details: [
+        '222286590',
+        '58815043',
+        'LIFT Maintenance: 01711631646',
+        'AC Maintenance: 01912390584',
+      ],
     },
   ];
 

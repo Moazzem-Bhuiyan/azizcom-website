@@ -40,10 +40,10 @@ export function Navbar() {
       'Water Cooled Chiller',
       'Air Cooled Chiller',
       'Absorption Chiller',
-      'Preciou Air Conditioning',
+      'Precision Air Conditioning',
       'Modular Chillers',
     ],
-    'LOCOMOTIVE DIVISION': ['Locomotive Division'],
+    'BUILDING MATERIALS': ['Building Materials'],
   };
 
   const containerVariants = {
@@ -151,7 +151,7 @@ export function Navbar() {
 
       {/* Main Header */}
       <motion.div
-        className="bg-black border-b-2 border-gray-200 shadow-sm "
+        className="bg-linear-to-r from-slate-50 to-gray-100 border-b-2 border-gray-200 shadow-sm "
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
@@ -160,7 +160,7 @@ export function Navbar() {
           <div className="flex max-w-full bg-white items-center justify-between">
             {/* Logo Section */}
             <motion.div
-              className="flex flex-1 items-center gap-1 bg-black px-4  justify-center slanted-bg"
+              className="flex flex-1 items-center gap-1 bg-linear-to-r from-slate-200 to-gray-50 shadow-2xl  px-4  justify-center slanted-bg"
               // whileHover={{ scale: 1.05 }}
               // transition={{ duration: 0.3 }}
             >

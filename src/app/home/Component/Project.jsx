@@ -7,6 +7,8 @@ const projects = [
   { name: 'INCEPTA VACCINE LTD.', capacity: '75 TR (YL) COOLING' },
   { name: 'BANGABANDHU SATELLITE LAUNCHING', capacity: '600 TR' },
   { name: 'MRT LINE - 06 (FIRST METRO RAIL IN BANGLADESH)', capacity: '1370 TR' },
+  { name: 'NATIONAL ASSEMBLY BUILDING', capacity: '2500 TR' },
+  { name: 'EASTERN HOUSING PLAZA', capacity: '1060 TR' },
   // later: more projects can be added here
 ];
 
@@ -81,6 +83,22 @@ export default function SuccessfulProjects() {
               <div className="mt-3 h-[2px] w-10 bg-blue-600 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
             </motion.div>
           ))}
+        </motion.div>
+        {/* view more button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          whileHover={{
+            y: -5,
+            scale: 1.02,
+          }}
+          className="flex items-center mt-5 justify-center bg-white p-5 rounded-2xl shadow-md border border-gray-100 overflow-hidden cursor-pointer"
+        >
+          <a href="/project" className="text-blue-600 font-semibold text-lg hover:underline">
+            View All Projects
+          </a>
         </motion.div>
       </div>
     </section>

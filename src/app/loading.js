@@ -16,7 +16,7 @@ export default function Loader({ fullScreen = true }) {
             {/*================= Pulsing logo================= */}
             <div className="relative flex h-32 w-32 items-center justify-center animate-pulse">
               <Image
-                src={'/src/assest/logo.png'}
+                src={'/logofirst.png'}
                 alt="PFC Electrical"
                 width={100}
                 height={100}
@@ -55,7 +55,7 @@ export default function Loader({ fullScreen = true }) {
         </div>
         <div className="relative flex h-16 w-16 items-center justify-center animate-pulse">
           <Image
-            src="/src/assest/logo.png"
+            src="/logofirst.png"
             alt="aziz company logo"
             width={50}
             height={50}

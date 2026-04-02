@@ -93,28 +93,28 @@ export default function ProjectsShowcase() {
             PROJECTS.map((project) => (
               <div
                 key={project.id}
-                className="group gap-3 p-4 sm:p-6 bg-black border border-border rounded-lg hover:border-accent transition-all hover:shadow-lg hover:bg-accent/5"
+                className="group gap-3 p-4 sm:p-6 bg-black text-white border border-border rounded-lg hover:border-accent transition-all hover:shadow-lg hover:bg-accent/5"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start gap-3">
-                      <span className="text-sm font-bold text-accent pt-1 shrink-0">
+                      <span className="text-sm text-white font-bold text-accent pt-1 shrink-0">
                         #{project.id}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-foreground font-semibold text-lg group-hover:text-accent transition-colors text-pretty line-clamp-2">
+                        <h3 className="text-foreground text-white font-semibold text-lg group-hover:text-accent transition-colors text-pretty line-clamp-2">
                           {project.name}
                         </h3>
-                        <p className="text-sm text-muted-foreground mt-1 line-clamp-1">
+                        <p className="text-sm text-muted-foreground mt-1 line-clamp-1 text-white">
                           {project.authority}
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4 sm:flex-col sm:items-end">
+                  <div className="flex items-center gap-4 sm:flex-col sm:items-end text-white">
                     <div className="text-right">
-                      <p className="text-xs text-muted-foreground mb-1">Capacity</p>
-                      <p className="text-lg font-bold text-accent">{project.capacity}</p>
+                      <p className="text-xs text-muted-foreground mb-1 text-white">Capacity</p>
+                      <p className="text-lg font-bold text-accent text-white">{project.capacity}</p>
                     </div>
                   </div>
                 </div>

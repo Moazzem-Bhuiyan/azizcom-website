@@ -1,0 +1,17 @@
+services:
+  dashboard:
+    build: .
+    image: nazmulhasn/azizcom_website:latest
+    container_name: azizcom_website
+    restart: unless-stopped
+    environment:
+      - .env
+      - PORT=3000
+    expose:
+      - '3000'
+    networks:
+      - azizcom_website_net
+
+networks:
+  azizcom_website_net:
+    driver: bridge

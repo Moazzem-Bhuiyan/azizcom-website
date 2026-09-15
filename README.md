@@ -18,10 +18,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deploy to VPS
 
-Pushing to `main` runs `.github/workflows/deploy.yml`. The workflow validates the Docker image, connects to the VPS, updates `/opt/azizcom`, and runs:
+Pushing to `main` runs `.github/workflows/deploy.yml`. The workflow builds and pushes a commit-tagged Docker image, connects to the VPS, pulls that image, and starts a candidate replica. It switches the active container only after the candidate passes its health check.
 
 ```bash
-docker compose up -d --build --remove-orphans
+docker pull nazmulhasn/azizcom_website:<commit-sha>
 ```
 
 Add these GitHub Actions secrets before deploying:

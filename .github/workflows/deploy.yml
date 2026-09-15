@@ -55,11 +55,17 @@ jobs:
             image="$IMAGE_NAME:$IMAGE_TAG"
 
             docker pull "$image"
-            network=$(docker inspect --format '{{range $name, $_ := .NetworkSettings.Networks}}{{$name}}{{end}}' "$active_container")
+            if docker inspect "$active_container" >/dev/null 2>&1; then
+              network=$(docker inspect --format '{{range $name, $_ := .NetworkSettings.Networks}}{{$name}}{{end}}' "$active_container")
+            else
+              network=azizcom-website_azizcom_website_net
+              docker network inspect "$network" >/dev/null 2>&1 || docker network create "$network"
+            fi
 
             docker rm -f "$candidate_container" "$previous_container" 2>/dev/null || true
             docker run -d \
               --name "$candidate_container" \
+              --restart unless-stopped \
               --network "$network" \
               --env-file /opt/azizcom/.env \
               -e PORT=3000 \
@@ -85,14 +91,26 @@ jobs:
               exit 1
             fi
 
-            docker rename "$active_container" "$previous_container"
-            if ! docker rename "$candidate_container" "$active_container"; then
-              docker rename "$previous_container" "$active_container"
-              docker rm -f "$candidate_container" 2>/dev/null || true
-              echo "Container switch failed; previous container restored."
+            if docker inspect "$active_container" >/dev/null 2>&1; then
+              docker rename "$active_container" "$previous_container"
+              if ! docker rename "$candidate_container" "$active_container"; then
+                docker rename "$previous_container" "$active_container"
+                docker rm -f "$candidate_container" 2>/dev/null || true
+                echo "Container switch failed; previous container restored."
+                exit 1
+              fi
+              docker rm -f "$previous_container"
+            else
+              docker rename "$candidate_container" "$active_container"
+            fi
+            docker start "$active_container" >/dev/null
+            final_status=$(docker inspect --format '{{.State.Status}}' "$active_container")
+            final_health=$(docker inspect --format '{{.State.Health.Status}}' "$active_container")
+            if [ "$final_status" != "running" ] || [ "$final_health" != "healthy" ]; then
+              docker logs "$active_container"
+              echo "Active container verification failed: status=$final_status health=$final_health"
               exit 1
             fi
-            docker rm -f "$previous_container"
         env:
           IMAGE_NAME: nazmulhasn/azizcom_website
           IMAGE_TAG: ${{ github.sha }}

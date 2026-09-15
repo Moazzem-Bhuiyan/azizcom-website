@@ -10,7 +10,7 @@ import Animatetext from '@/Component/shared/AnimatedText/AnimatedText';
 
 const slides = [
   {
-    title: 'The Future Runs On the YORKS',
+    title: 'The Future Runs On the YORK',
     desc: 'Renowned for its reliability and efficiency, YORK air conditioners are the preferred choice for cooling solutions worldwide.',
     image: '/hero/herobg1.png',
     productImage: '/hero/nsu.png',

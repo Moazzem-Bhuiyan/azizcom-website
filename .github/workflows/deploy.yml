@@ -45,7 +45,9 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT || 22 }}
-          script_stop: true
+          timeout: 60s
+          command_timeout: 10m
+          debug: true
           envs: IMAGE_NAME,IMAGE_TAG
           script: |
             set -e

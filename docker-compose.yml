@@ -4,9 +4,10 @@ services:
     image: nazmulhasn/azizcom_website:latest
     container_name: azizcom_website
     restart: unless-stopped
-    environment:
+    env_file:
       - .env
-      - PORT=3000
+    environment:
+      PORT: 3000
     expose:
       - '3000'
     networks:

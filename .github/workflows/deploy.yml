@@ -1,24 +1,59 @@
 name: Build and Deploy
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
       - main
   workflow_dispatch:
 
 concurrency:
-  group: production-deploy
-  cancel-in-progress: true
+  group: azizcom-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
 
 jobs:
-  build-and-deploy:
+  quality:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Docker image
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12.9.0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Build application
+        run: pnpm build
+
+  deploy:
+    needs: quality
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
       - name: Log in to Docker Hub
@@ -47,10 +82,9 @@ jobs:
           port: ${{ secrets.VPS_PORT || 22 }}
           timeout: 60s
           command_timeout: 10m
-          debug: true
           envs: IMAGE_NAME,IMAGE_TAG
           script: |
-            set -e
+            set -eu
             active_container=azizcom_website
             candidate_container=azizcom_website_candidate
             previous_container=azizcom_website_previous
@@ -105,14 +139,21 @@ jobs:
             else
               docker rename "$candidate_container" "$active_container"
             fi
-            docker start "$active_container" >/dev/null
             final_status=$(docker inspect --format '{{.State.Status}}' "$active_container")
             final_health=$(docker inspect --format '{{.State.Health.Status}}' "$active_container")
             if [ "$final_status" != "running" ] || [ "$final_health" != "healthy" ]; then
               docker logs "$active_container"
+              if docker inspect "$previous_container" >/dev/null 2>&1; then
+                docker rename "$active_container" "$candidate_container"
+                docker rename "$previous_container" "$active_container"
+                docker rm -f "$candidate_container"
+              else
+                docker rm -f "$active_container"
+              fi
               echo "Active container verification failed: status=$final_status health=$final_health"
               exit 1
             fi
+            docker rm -f "$previous_container" 2>/dev/null || true
         env:
           IMAGE_NAME: nazmulhasn/azizcom_website
           IMAGE_TAG: ${{ github.sha }}

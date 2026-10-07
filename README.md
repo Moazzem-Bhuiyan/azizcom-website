@@ -18,7 +18,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deploy to VPS
 
-Pushing to `main` runs `.github/workflows/deploy.yml`. The workflow builds and pushes a commit-tagged Docker image, connects to the VPS, pulls that image, and starts a candidate replica. It switches the active container only after the candidate passes its health check.
+Pull requests targeting `main` run the lint and production build checks in `.github/workflows/deploy.yml`. Pushing to `main` runs those checks before building and pushing a commit-tagged Docker image. The workflow then connects to the VPS, pulls that image, and starts a candidate replica; it switches the active container only after the candidate passes its health check. Docker installs dependencies from `pnpm-lock.yaml` with a frozen lockfile.
 
 ```bash
 docker pull nazmulhasn/azizcom_website:<commit-sha>
